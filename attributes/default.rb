@@ -3,8 +3,8 @@ default[:packages][:to_install] = []
 default[:packages][:to_remove] = []
 
 # List of group of packages
-default[:groups][:to_install] = [ :office, :mail]
-default[:groups][:to_remove] = [ :office, :mail]
+default[:groups][:to_install] = [ :office, :mail ]
+default[:groups][:to_remove] = [ :remoteadmin ]
 
 # Definition of the groups of packages
 default[:groups][:office] = [
