@@ -30,7 +30,7 @@ node["packages"]["to_remove"].each do |pkg|
 end
 
 node["groups"]["to_install"].each do |group|
-  group.each do |pkg|
+  node["groups"][group].each do |pkg|
     package pkg do
       action :install
     end
@@ -38,7 +38,7 @@ node["groups"]["to_install"].each do |group|
 end
 
 node["groups"]["to_remove"].each do |group|
-  group.each do |pkg|
+  node["groups"][group].each do |pkg|
     package pkg do
       action :remove
     end
