@@ -67,7 +67,7 @@ default[:add_remove_software][:groups][:a11y] = [
 default[:add_remove_software][:groups][:tablet] = [
                                                    'xournal',
                                                    'easystroke',
-                                                   'xrandr',
+                                                   'x11-xserver-utils',
                                                    'cellwriter'
                                                  ]
 
