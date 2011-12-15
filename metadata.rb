@@ -4,6 +4,11 @@ license           "Apache 2.0"
 description       "Add or Remove software from a workstation"
 version           "0.1.1"
 
+provides          "add_remove_software"
+provides          "add_remove_software::office"
+provides          "add_remove_software::thunderbird_es"
+provides          "add_remove_software::tablet"
+
 recipe            "add_remove_software", "Add or Remove a list of packages"
 
 %w{ redhat centos fedora ubuntu debian }.each do |os|
