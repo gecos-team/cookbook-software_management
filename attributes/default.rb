@@ -27,11 +27,7 @@ default[:add_remove_software][:groups][:office] = [
                                                  ]
 
 default[:add_remove_software][:groups][:mail] = [
-                                                 'thunderbird-locale-en-gb',
-                                                 'thunderbird-locale-en-us',
-                                                 'thunderbird-locale-es-es',
-                                                 'thunderbird',
-                                                 'thunderbird-gnome-support'
+                                                 'thunderbird-gecos'
                                                ]
 
 default[:add_remove_software][:groups][:pdftools] = [
