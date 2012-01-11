@@ -17,30 +17,8 @@
 # limitations under the License.
 #
 
-node["add_remove_software"]["packages"]["to_install"].each do |pkg|
-  package pkg do
-    action :install
-  end
-end
-
-node["add_remove_software"]["packages"]["to_remove"].each do |pkg|
-  package pkg do
-    action :remove
-  end
-end
-
-node["add_remove_software"]["groups"]["to_install"].each do |group|
-  node["add_remove_software"]["groups"][group].each do |pkg|
-    package pkg do
-      action :install
-    end
-  end
-end
-
-node["add_remove_software"]["groups"]["to_remove"].each do |group|
-  node["add_remove_software"]["groups"][group].each do |pkg|
-    package pkg do
-      action :remove
-    end
-  end
+add_remove_software_package_list "packages" do
+  packages_to_install node["add_remove_software"]["packages"]["to_install"]
+  packages_to_remove node["add_remove_software"]["packages"]["to_remove"]
+  action :process
 end
