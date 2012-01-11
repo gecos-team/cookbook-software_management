@@ -26,7 +26,7 @@ action :process do
   unless pkgs_to_install.empty?
     pkgs_to_install.each do |pkg|
       package pkg do
-          action :add
+          action :install
       end
     end
   end
