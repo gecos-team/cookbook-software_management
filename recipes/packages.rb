@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: add_remove_software
-# Recipe:: default
+# Recipe:: packages
 #
 # Copyright 2011, Junta de Andalucía
 #
