@@ -20,8 +20,8 @@
 action :process do
   installed_pkgs = `dpkg --get-selections | grep -v deinstall | awk '{print $1}'`.split("\n")
 
-  pkgs_to_install = new_resource.packages_to_add - installed_pkgs - new_resource.packages_to_del
-  pkgs_to_remove = installed_pkgs & new_resource.packages_to_del
+  pkgs_to_install = new_resource.packages_to_install - installed_pkgs - new_resource.packages_to_remove
+  pkgs_to_remove = installed_pkgs & new_resource.packages_to_remove
 
   unless pkgs_to_install.empty?
     pkgs_to_install.each do |pkg|
