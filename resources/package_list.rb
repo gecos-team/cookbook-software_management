@@ -17,6 +17,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+def initialize(*args)
+  super
+  @action = :process
+end
+
 actions :process
 
 attribute :packages_to_install, :kind_of => Array, :required => false, :default => []
