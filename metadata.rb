@@ -77,31 +77,6 @@ attribute 'office/install',
   :default      => "no",
   :recipes      => [ 'add_remove_software::office' ]
 
-attribute 'office/packages',
-  :display_name => "List of office packages",
-  :description  => "This is the list of packages that will be either, installed, or removed.",
-  :type         => "array",
-  :required     => "required",
-  :default      => [
-                    'libreoffice',
-                    'libreoffice-gnome',
-                    'libreoffice-base',
-                    'libreoffice-calc',
-                    'libreoffice-draw',
-                    'libreoffice-impress',
-                    'libreoffice-math',
-                    'libreoffice-writer',
-                    'libreoffice-pdfimport',
-                    'libreoffice-emailmerge',
-                    'libreoffice-gtk',
-                    'libreoffice-style-tango',
-                    'libreoffice-l10n-es',
-                    'libreoffice-help-es',
-                    'freemind',
-                    'tomboy'
-                    ],
-  :recipes      => [ 'add_remove_software::office' ]
-
 attribute 'mail/install',
   :display_name => "Install 'mail' software group?",
   :description  => "\"no\" means that 'mail' software group will be removed",
@@ -111,15 +86,6 @@ attribute 'mail/install',
   :default      => "no",
   :recipes      => [ 'add_remove_software::mail' ]
 
-attribute 'mail/packages',
-  :display_name => "List of mail packages",
-  :description  => "This is the list of packages that will be either, installed, or removed.",
-  :type         => "array",
-  :required     => "required",
-  :default      => [
-                    'thunderbird-gecos'
-                   ],
-  :recipes      => [ 'add_remove_software::mail' ]
 
 attribute 'pdftools/install',
   :display_name => "Install 'pdftools' software group?",
@@ -130,16 +96,6 @@ attribute 'pdftools/install',
   :default      => "no",
   :recipes      => [ 'add_remove_software::pdftools' ]
 
-attribute 'pdftools/packages',
-  :display_name => "List of pdftools packages",
-  :description  => "This is the list of packages that will be either, installed, or removed.",
-
-  :type         => "array",
-  :required     => "required",
-  :default      => [
-                    'pdfmod'
-                   ],
-  :recipes      => [ 'add_remove_software::pdftools' ]
 
 attribute 'imgscan/install',
   :display_name => "Install 'imgscan' software group?",
@@ -148,19 +104,6 @@ attribute 'imgscan/install',
   :choice       => [ "no" , "yes" ],
   :required     => "required",
   :default      => "no",
-  :recipes      => [ 'add_remove_software::imgscan' ]
-
-attribute 'imgscan/packages',
-  :display_name => "List of imgscan packages",
-  :description  => "This is the list of packages that will be either, installed, or removed.",
-
-  :type         => "array",
-  :required     => "required",
-  :default      => [
-                   'simple-scan',
-                   'tesseract-ocr-spa',
-                   'tesseract-ocr'
-                   ],
   :recipes      => [ 'add_remove_software::imgscan' ]
 
 
@@ -173,19 +116,6 @@ attribute 'imgedit/install',
   :default      => "no",
   :recipes      => [ 'add_remove_software::imgedit' ]
 
-attribute 'imgedit/packages',
-  :display_name => "List of imgedit packages",
-  :description  => "This is the list of packages that will be either, installed, or removed.",
-
-  :type         => "array",
-  :required     => "required",
-  :default      => [
-                   'gimp',
-                   'gimp-help-es',
-                   'gimp-help-en',
-                   'inkscape'
-                   ],
-  :recipes      => [ 'add_remove_software::imgedit' ]
 
 attribute 'remoteadmin/install',
   :display_name => "Install 'remoteadmin' software group?",
@@ -196,16 +126,6 @@ attribute 'remoteadmin/install',
   :default      => "no",
   :recipes      => [ 'add_remove_software::remoteadmin' ]
 
-attribute 'remoteadmin/packages',
-  :display_name => "List of remoteadmin packages",
-  :description  => "This is the list of packages that will be either, installed, or removed.",
-
-  :type         => "array",
-  :required     => "required",
-  :default      => [
-                   'vnc4server'
-                   ],
-  :recipes      => [ 'add_remove_software::remoteadmin' ]
 
 attribute 'collaborative/install',
   :display_name => "Install 'collaborative' software group?",
@@ -216,17 +136,6 @@ attribute 'collaborative/install',
   :default      => "no",
   :recipes      => [ 'add_remove_software::collaborative' ]
 
-attribute 'collaborative/packages',
-  :display_name => "List of collaborative packages",
-  :description  => "This is the list of packages that will be either, installed, or removed.",
-
-  :type         => "array",
-  :required     => "required",
-  :default      => [
-                   'pidgin',
-                   'gobby'
-                   ],
-  :recipes      => [ 'add_remove_software::collaborative' ]
 
 
 attribute 'a11y/install',
@@ -238,17 +147,6 @@ attribute 'a11y/install',
   :default      => "no",
   :recipes      => [ 'add_remove_software::a11y' ]
 
-attribute 'a11y/packages',
-  :display_name => "List of a11y packages",
-  :description  => "This is the list of packages that will be either, installed, or removed.",
-
-  :type         => "array",
-  :required     => "required",
-  :default      => [
-                   'gnome-orca',
-                   'caribou'
-                   ],
-  :recipes      => [ 'add_remove_software::a11y' ]
 
 attribute 'tablet/install',
   :display_name => "Install 'tablet' software group?",
@@ -259,16 +157,3 @@ attribute 'tablet/install',
   :default      => "no",
   :recipes      => [ 'add_remove_software::tablet' ]
 
-attribute 'tablet/packages',
-  :display_name => "List of tablet packages",
-  :description  => "This is the list of packages that will be either, installed, or removed.",
-
-  :type         => "array",
-  :required     => "required",
-  :default      => [
-                   'xournal',
-                   'easystroke',
-                   'x11-xserver-utils',
-                   'cellwriter'
-                   ],
-  :recipes      => [ 'add_remove_software::tablet' ]
