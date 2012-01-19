@@ -17,17 +17,17 @@
 # limitations under the License.
 #
 
-if node["add_remove_software"]["groups"]["imgedit"]["install"] == "yes"
+if node["imgedit"]["install"] == "yes"
 
   add_remove_software_package_list "imgedit" do
-    packages_to_install node["add_remove_software"]["groups"]["imgedit"]["packages"]
+    packages_to_install node["imgedit"]["packages"]
     action :process
   end
 
-elsif node["add_remove_software"]["groups"]["imgedit"]["install"] == "no"
+elsif node["imgedit"]["install"] == "no"
 
   add_remove_software_package_list "imgedit" do
-    packages_to_remove node["add_remove_software"]["groups"]["imgedit"]["packages"]
+    packages_to_remove node["imgedit"]["packages"]
     action :process
   end
 

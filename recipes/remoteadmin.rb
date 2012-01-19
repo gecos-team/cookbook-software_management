@@ -17,17 +17,17 @@
 # limitations under the License.
 #
 
-if node["add_remove_software"]["groups"]["remoteadmin"]["install"] == "yes"
+if node["remoteadmin"]["install"] == "yes"
 
   add_remove_software_package_list "remoteadmin" do
-    packages_to_install node["add_remove_software"]["groups"]["remoteadmin"]["packages"]
+    packages_to_install node["remoteadmin"]["packages"]
     action :process
   end
 
-elsif node["add_remove_software"]["groups"]["remoteadmin"]["install"] == "no"
+elsif node["remoteadmin"]["install"] == "no"
 
   add_remove_software_package_list "remoteadmin" do
-    packages_to_remove node["add_remove_software"]["groups"]["remoteadmin"]["packages"]
+    packages_to_remove node["remoteadmin"]["packages"]
     action :process
   end
 

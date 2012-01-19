@@ -17,17 +17,17 @@
 # limitations under the License.
 #
 
-if node["add_remove_software"]["groups"]["collaborative"]["install"] == "yes"
+if node["collaborative"]["install"] == "yes"
 
   add_remove_software_package_list "collaborative" do
-    packages_to_install node["add_remove_software"]["groups"]["collaborative"]["packages"]
+    packages_to_install node["collaborative"]["packages"]
     action :process
   end
 
-elsif node["add_remove_software"]["groups"]["collaborative"]["install"] == "no"
+elsif node["collaborative"]["install"] == "no"
 
   add_remove_software_package_list "collaborative" do
-    packages_to_remove node["add_remove_software"]["groups"]["collaborative"]["packages"]
+    packages_to_remove node["collaborative"]["packages"]
     action :process
   end
 

@@ -17,17 +17,17 @@
 # limitations under the License.
 #
 
-if node["add_remove_software"]["groups"]["mail"]["install"] == "yes"
+if node["mail"]["install"] == "yes"
 
   add_remove_software_package_list "mail" do
-    packages_to_install node["add_remove_software"]["groups"]["mail"]["packages"]
+    packages_to_install node["mail"]["packages"]
     action :process
   end
 
-elsif node["add_remove_software"]["groups"]["mail"]["install"] == "no"
+elsif node["mail"]["install"] == "no"
 
   add_remove_software_package_list "mail" do
-    packages_to_remove node["add_remove_software"]["groups"]["mail"]["packages"]
+    packages_to_remove node["mail"]["packages"]
     action :process
   end
 

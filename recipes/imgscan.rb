@@ -17,17 +17,17 @@
 # limitations under the License.
 #
 
-if node["add_remove_software"]["groups"]["imgscan"]["install"] == "yes"
+if node["imgscan"]["install"] == "yes"
 
   add_remove_software_package_list "imgscan" do
-    packages_to_install node["add_remove_software"]["groups"]["imgscan"]["packages"]
+    packages_to_install node["imgscan"]["packages"]
     action :process
   end
 
-elsif node["add_remove_software"]["groups"]["imgscan"]["install"] == "no"
+elsif node["imgscan"]["install"] == "no"
 
   add_remove_software_package_list "imgscan" do
-    packages_to_remove node["add_remove_software"]["groups"]["imgscan"]["packages"]
+    packages_to_remove node["imgscan"]["packages"]
     action :process
   end
 
