@@ -19,6 +19,6 @@
 
 add_remove_software_package_list "packages" do
   packages_to_install node["packages"]["to_install"]
-  packages_to_remove node"packages"]["to_remove"]
+  packages_to_remove node["packages"]["to_remove"]
   action :process
 end
