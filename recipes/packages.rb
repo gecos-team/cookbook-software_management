@@ -16,8 +16,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-to_install=node["packages"]["to_install"].map{|x| x[1]}.flatten
-to_remove=node["packages"]["to_remove"].map{|x| x[1]}.flatten
+to_install_hash=node["packages"]["to_install"].map{|x| x[1]}.flatten
+to_remove_hash=node["packages"]["to_remove"].map{|x| x[1]}.flatten
+to_remove=[]
+to_install=[]
+to_remove_hash.each do |pkg|
+  to_remove << pkg[:name]
+end
+
+to_install_hash.each do |pkg|
+  to_install << pkg[:name]
+end
 add_remove_software_package_list "packages" do
   packages_to_install to_install
   packages_to_remove to_remove

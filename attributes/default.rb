@@ -1,6 +1,6 @@
 # List of individual packages
-default[:packages][:to_install] = []
-default[:packages][:to_remove] = []
+default[:packages][:to_install] = {}
+default[:packages][:to_remove] = {}
 
 # Definition of the groups of packages
 default[:office][:install] = 'no'
