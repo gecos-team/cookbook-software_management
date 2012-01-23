@@ -54,7 +54,7 @@ default[:remoteadmin][:packages] = [
                                    ]
 
 default[:collaborative][:install] = 'no'
-default[:collaborative][:package] = [
+default[:collaborative][:packages] = [
                                    'pidgin',
                                    'gobby'
                                    ]
