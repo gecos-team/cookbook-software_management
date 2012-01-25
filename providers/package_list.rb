@@ -37,6 +37,12 @@ action :process do
           action :remove
       end
     end
+
+    execute "autoremove" do
+      command "apt-get autoremove -q -y"
+      action :run
+      environment ({'DEBIAN_FRONTEND' => 'noninteractive'})
+    end
   end
   
 end
