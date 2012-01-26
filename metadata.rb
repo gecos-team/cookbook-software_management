@@ -48,6 +48,7 @@ attribute 'packages/to_install/name',
   :description  => "Package name to install",
   :type         => "string",
   :required     => "required",
+  :wizard       => "search",
   :order        => "0",
   :recipes      => [ 'add_remove_software::packages' ]
 
@@ -64,6 +65,7 @@ attribute 'packages/to_remove/name',
   :description  => "Package name to remove",
   :type         => "string",
   :required     => "required",
+  :wizard       => "search",
   :order        => "1",
   :recipes      => [ 'add_remove_software::packages' ]
 
