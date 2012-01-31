@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: software_management
-# Recipe:: imgedit
+# Recipe:: collaborative
 #
 # Copyright 2011, Junta de Andalucía
 #
@@ -17,17 +17,17 @@
 # limitations under the License.
 #
 
-if node["imgedit"]["install"] == "yes"
+if node["profile_collaboration"]["install"] == "yes"
 
-  software_management_package_list "imgedit" do
-    packages_to_install node["imgedit"]["packages"]
+  software_management_package_list "collaborative" do
+    packages_to_install node["profile_collaboration"]["packages"]
     action :process
   end
 
-elsif node["imgedit"]["install"] == "no"
+elsif node["profile_collaboration"]["install"] == "no"
 
-  software_management_package_list "imgedit" do
-    packages_to_remove node["imgedit"]["packages"]
+  software_management_package_list "collaborative" do
+    packages_to_remove node["profile_collaboration"]["packages"]
     action :process
   end
 

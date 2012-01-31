@@ -6,28 +6,28 @@ version           "0.2.1"
 
 provides            "software_management::packages"
 
-provides            "software_management::office"
-provides            "software_management::mail"
-provides            "software_management::pdftools"
-provides            "software_management::imgscan"
-provides            "software_management::imgedit"
-provides            "software_management::remoteadmin"
-provides            "software_management::collaborative"
-provides            "software_management::a11y"
-provides            "software_management::tablet"
+provides            "software_management::profile_office"
+provides            "software_management::profile_mail"
+provides            "software_management::profile_pdftools"
+provides            "software_management::profile_scanner"
+provides            "software_management::profile_photo_edition"
+provides            "software_management::profile_remote_access"
+provides            "software_management::profile_collaboration"
+provides            "software_management::profile_accessibility"
+provides            "software_management::profile_tablet"
 
 recipe            "software_management::packages", "add or remove package lists"
 
 
-recipe            "software_management::office", "add or remove 'office' related packages"
-recipe            "software_management::mail", "add or remove 'mail' related packages"
-recipe            "software_management::pdftools", "add or remove 'pdftools' related packages"
-recipe            "software_management::imgscan", "add or remove 'imgscan' related packages"
-recipe            "software_management::imgedit", "add or remove 'imgedit' related packages"
-recipe            "software_management::remoteadmin", "add or remove 'remoteadmin' related packages"
-recipe            "software_management::collaborative", "add or remove 'collaborative' related packages"
-recipe            "software_management::a11y", "add or remove 'a11y' related packages"
-recipe            "software_management::tablet", "add or remove 'tablet' related packages"
+recipe            "software_management::profile_office", "add or remove 'office' related packages"
+recipe            "software_management::profile_mail", "add or remove 'mail' related packages"
+recipe            "software_management::profile_pdftools", "add or remove 'pdftools' related packages"
+recipe            "software_management::profile_scanner", "add or remove 'imgscan' related packages"
+recipe            "software_management::profile_photo_edition", "add or remove 'imgedit' related packages"
+recipe            "software_management::profile_remote_access", "add or remove 'remoteadmin' related packages"
+recipe            "software_management::profile_collaboration", "add or remove 'collaborative' related packages"
+recipe            "software_management::profile_accessibility", "add or remove 'a11y' related packages"
+recipe            "software_management::profile_tablet", "add or remove 'tablet' related packages"
 
 
 
@@ -70,92 +70,92 @@ attribute 'packages/to_remove/name',
   :recipes      => [ 'software_management::packages' ]
 
 
-attribute 'office/install',
-  :display_name => "Install 'office' software group?",
-  :description  => "\"no\" means that 'office' software group will be removed",
+attribute 'profile_office/install',
+  :display_name => "Install 'office' software profile?",
+  :description  => "\"no\" means that 'office' software profile will be removed",
   :type         => "string",
   :choice       => [ "no" , "yes" ],
   :required     => "required",
   :default      => "no",
-  :recipes      => [ 'software_management::office' ]
+  :recipes      => [ 'software_management::profile_office' ]
 
-attribute 'mail/install',
-  :display_name => "Install 'mail' software group?",
-  :description  => "\"no\" means that 'mail' software group will be removed",
+attribute 'profile_mail/install',
+  :display_name => "Install 'mail' software profile?",
+  :description  => "\"no\" means that 'mail' software profile will be removed",
   :type         => "string",
   :choice       => [ "no" , "yes" ],
   :required     => "required",
   :default      => "no",
-  :recipes      => [ 'software_management::mail' ]
+  :recipes      => [ 'software_management::profile_mail' ]
 
 
-attribute 'pdftools/install',
-  :display_name => "Install 'pdftools' software group?",
-  :description  => "\"no\" means that 'pdftools' software group will be removed",
+attribute 'profile_pdftools/install',
+  :display_name => "Install 'pdftools' software profile?",
+  :description  => "\"no\" means that 'pdftools' software profile will be removed",
   :type         => "string",
   :choice       => [ "no" , "yes" ],
   :required     => "required",
   :default      => "no",
-  :recipes      => [ 'software_management::pdftools' ]
+  :recipes      => [ 'software_management::profile_pdftools' ]
 
 
-attribute 'imgscan/install',
-  :display_name => "Install 'imgscan' software group?",
-  :description  => "\"no\" means that 'imgscan' software group will be removed",
+attribute 'profile_scanner/install',
+  :display_name => "Install 'scanner' software profile?",
+  :description  => "\"no\" means that 'scanner' software profile will be removed",
   :type         => "string",
   :choice       => [ "no" , "yes" ],
   :required     => "required",
   :default      => "no",
-  :recipes      => [ 'software_management::imgscan' ]
+  :recipes      => [ 'software_management::profile_scanner' ]
 
 
-attribute 'imgedit/install',
-  :display_name => "Install 'imgedit' software group?",
-  :description  => "\"no\" means that 'imgedit' software group will be removed",
+attribute 'profile_photo_edition/install',
+  :display_name => "Install 'photo_edition' software profile ?",
+  :description  => "\"no\" means that 'photo_edition' software profile will be removed",
   :type         => "string",
   :choice       => [ "no" , "yes" ],
   :required     => "required",
   :default      => "no",
-  :recipes      => [ 'software_management::imgedit' ]
+  :recipes      => [ 'software_management::profile_photo_edition' ]
 
 
-attribute 'remoteadmin/install',
-  :display_name => "Install 'remoteadmin' software group?",
-  :description  => "\"no\" means that 'remoteadmin' software group will be removed",
+attribute 'profile_remote_access/install',
+  :display_name => "Install 'remote_access' software profile ?",
+  :description  => "\"no\" means that 'remote_access' software profile will be removed",
   :type         => "string",
   :choice       => [ "no" , "yes" ],
   :required     => "required",
   :default      => "no",
-  :recipes      => [ 'software_management::remoteadmin' ]
+  :recipes      => [ 'software_management::profile_remote_access' ]
 
 
-attribute 'collaborative/install',
-  :display_name => "Install 'collaborative' software group?",
-  :description  => "\"no\" means that 'collaborative' software group will be removed",
+attribute 'profile_collaboration/install',
+  :display_name => "Install 'collaboration' software profile ?",
+  :description  => "\"no\" means that 'collaboration' software profile will be removed",
   :type         => "string",
   :choice       => [ "no" , "yes" ],
   :required     => "required",
   :default      => "no",
-  :recipes      => [ 'software_management::collaborative' ]
+  :recipes      => [ 'software_management::profile_collaboration' ]
 
 
 
-attribute 'a11y/install',
-  :display_name => "Install 'a11y' software group?",
-  :description  => "\"no\" means that 'a11y' software group will be removed",
+attribute 'profile_accessibility/install',
+  :display_name => "Install 'accessibility' software profile ?",
+  :description  => "\"no\" means that 'accessibility' software profile will be removed",
   :type         => "string",
   :choice       => [ "no" , "yes" ],
   :required     => "required",
   :default      => "no",
-  :recipes      => [ 'software_management::a11y' ]
+  :recipes      => [ 'software_management::profile_accessibility' ]
 
 
-attribute 'tablet/install',
-  :display_name => "Install 'tablet' software group?",
-  :description  => "\"no\" means that 'tablet' software group will be removed",
+attribute 'profile_tablet/install',
+  :display_name => "Install 'tablet' software profile?",
+  :description  => "\"no\" means that 'tablet' software profile will be removed",
   :type         => "string",
   :choice       => [ "no" , "yes" ],
   :required     => "required",
   :default      => "no",
-  :recipes      => [ 'software_management::tablet' ]
+  :recipes      => [ 'software_management::profile_tablet' ]
 

@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: software_management
-# Recipe:: a11y
+# Recipe:: remoteadmin
 #
 # Copyright 2011, Junta de Andalucía
 #
@@ -17,17 +17,17 @@
 # limitations under the License.
 #
 
-if node["a11y"]["install"] == "yes"
+if node["profile_remote_access"]["install"] == "yes"
 
-  software_management_package_list "a11y" do
-    packages_to_install node["a11y"]["packages"]
+  software_management_package_list "remoteadmin" do
+    packages_to_install node["profile_remote_access"]["packages"]
     action :process
   end
 
-elsif node["a11y"]["install"] == "no"
+elsif node["profile_remote_access"]["install"] == "no"
 
-  software_management_package_list "a11y" do
-    packages_to_remove node["a11y"]["packages"]
+  software_management_package_list "remoteadmin" do
+    packages_to_remove node["profile_remote_access"]["packages"]
     action :process
   end
 

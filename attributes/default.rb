@@ -3,8 +3,8 @@ default[:packages][:to_install] = {}
 default[:packages][:to_remove] = {}
 
 # Definition of the groups of packages
-default[:office][:install] = 'no'
-default[:office][:packages] = [
+default[:profile_office][:install] = 'no'
+default[:profile_office][:packages] = [
                               'libreoffice',
                               'libreoffice-gnome',
                               'libreoffice-base',
@@ -23,49 +23,49 @@ default[:office][:packages] = [
                               'tomboy'
                               ]
        
-default[:mail][:install] = 'no'
-default[:mail][:packages] = [
+default[:profile_mail][:install] = 'no'
+default[:profile_mail][:packages] = [
                             'thunderbird-gecos'
                             ]
 
-default[:pdftools][:install]  = 'no'
-default[:pdftools][:packages] = [
+default[:profile_pdftools][:install]  = 'no'
+default[:profile_pdftools][:packages] = [
                                 'pdfmod'
                                 ]
 
-default[:imgscan][:install] = 'no'
-default[:imgscan][:packages] = [
+default[:profile_scanner][:install] = 'no'
+default[:profile_scanner][:packages] = [
                                'simple-scan',
                                'tesseract-ocr-spa',
                                'tesseract-ocr'
                                ]
 
-default[:imgedit][:install] = 'no'
-default[:imgedit][:packages] = [
+default[:profile_photo_edition][:install] = 'no'
+default[:profile_photo_edition][:packages] = [
                                'gimp',
                                'gimp-help-es',
                                'gimp-help-en',
                                'inkscape'
                                ]
 
-default[:remoteadmin][:install] = 'no'
-default[:remoteadmin][:packages] = [
+default[:profile_remote_access][:install] = 'no'
+default[:profile_remote_access][:packages] = [
                                    'vnc4server'
                                    ]
 
-default[:collaborative][:install] = 'no'
-default[:collaborative][:packages] = [
+default[:profile_collaboration][:install] = 'no'
+default[:profile_collaboration][:packages] = [
                                    'pidgin',
                                    'gobby'
                                    ]
-default[:a11y][:install] = 'no'
-default[:a11y][:packages] = [
+default[:profile_accessibility][:install] = 'no'
+default[:profile_accessibility][:packages] = [
                             'gnome-orca',
                             'caribou'
                             ]
 
-default[:tablet][:install] = 'no'
-default[:tablet][:packages] = [
+default[:profile_tablet][:install] = 'no'
+default[:profile_tablet][:packages] = [
                               'xournal',
                               'easystroke',
                               'x11-xserver-utils',

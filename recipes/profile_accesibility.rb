@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: software_management
-# Recipe:: collaborative
+# Recipe:: a11y
 #
 # Copyright 2011, Junta de Andalucía
 #
@@ -17,17 +17,17 @@
 # limitations under the License.
 #
 
-if node["collaborative"]["install"] == "yes"
+if node["profile_accessibility"]["install"] == "yes"
 
-  software_management_package_list "collaborative" do
-    packages_to_install node["collaborative"]["packages"]
+  software_management_package_list "a11y" do
+    packages_to_install node["profile_accessibility"]["packages"]
     action :process
   end
 
-elsif node["collaborative"]["install"] == "no"
+elsif node["profile_accessibility"]["install"] == "no"
 
-  software_management_package_list "collaborative" do
-    packages_to_remove node["collaborative"]["packages"]
+  software_management_package_list "a11y" do
+    packages_to_remove node["profile_accessibility"]["packages"]
     action :process
   end
 

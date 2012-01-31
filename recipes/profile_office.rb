@@ -17,17 +17,17 @@
 # limitations under the License.
 #
 
-if node["office"]["install"] == "yes"
+if node["profile_office"]["install"] == "yes"
 
   software_management_package_list "office" do
-    packages_to_install node["office"]["packages"]
+    packages_to_install node["profile_office"]["packages"]
     action :process
   end
 
-elsif node["office"]["install"] == "no"
+elsif node["profile_office"]["install"] == "no"
 
   software_management_package_list "office" do
-    packages_to_remove node["office"]["packages"]
+    packages_to_remove node["profile_office"]["packages"]
     action :process
   end
 

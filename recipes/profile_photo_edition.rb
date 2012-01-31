@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: software_management
-# Recipe:: remoteadmin
+# Recipe:: imgedit
 #
 # Copyright 2011, Junta de Andalucía
 #
@@ -17,17 +17,17 @@
 # limitations under the License.
 #
 
-if node["remoteadmin"]["install"] == "yes"
+if node["profile_photo_edition"]["install"] == "yes"
 
-  software_management_package_list "remoteadmin" do
-    packages_to_install node["remoteadmin"]["packages"]
+  software_management_package_list "imgedit" do
+    packages_to_install node["profile_photo_edition"]["packages"]
     action :process
   end
 
-elsif node["remoteadmin"]["install"] == "no"
+elsif node["profile_photo_edition"]["install"] == "no"
 
-  software_management_package_list "remoteadmin" do
-    packages_to_remove node["remoteadmin"]["packages"]
+  software_management_package_list "imgedit" do
+    packages_to_remove node["profile_photo_edition"]["packages"]
     action :process
   end
 

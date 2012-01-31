@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: software_management
-# Recipe:: tablet
+# Recipe:: imgscan
 #
 # Copyright 2011, Junta de Andalucía
 #
@@ -17,17 +17,17 @@
 # limitations under the License.
 #
 
-if node["tablet"]["install"] == "yes"
+if node["profile_scanner"]["install"] == "yes"
 
-  software_management_package_list "tablet" do
-    packages_to_install node["tablet"]["packages"]
+  software_management_package_list "imgscan" do
+    packages_to_install node["profile_scanner"]["packages"]
     action :process
   end
 
-elsif node["tablet"]["install"] == "no"
+elsif node["profile_scanner"]["install"] == "no"
 
-  software_management_package_list "tablet" do
-    packages_to_remove node["tablet"]["packages"]
+  software_management_package_list "imgscan" do
+    packages_to_remove node["profile_scanner"]["packages"]
     action :process
   end
 

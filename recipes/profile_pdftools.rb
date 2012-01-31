@@ -17,17 +17,17 @@
 # limitations under the License.
 #
 
-if node["pdftools"]["install"] == "yes"
+if node["profile_pdftools"]["install"] == "yes"
 
   software_management_package_list "pdftools" do
-    packages_to_install node["pdftools"]["packages"]
+    packages_to_install node["profile_pdftools"]["packages"]
     action :process
   end
 
-elsif node["pdftools"]["install"] == "no"
+elsif node["profile_pdftools"]["install"] == "no"
 
   software_management_package_list "pdftools" do
-    packages_to_remove node["pdftools"]["packages"]
+    packages_to_remove node["profile_pdftools"]["packages"]
     action :process
   end
 

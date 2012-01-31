@@ -15,7 +15,7 @@ You can define your own groups of packages like this:
 
 ```
 default[:software_management][:groups][:basic] = []
-default[:software_management][:groups][:office] = [
+default[:software_management][:groups][:profile_office] = [
                                                    'libreoffice-writer',
                                                    'libreoffice-calc',
                                                    'libreoffice-impress'
