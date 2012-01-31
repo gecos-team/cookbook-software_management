@@ -26,6 +26,7 @@ action :process do
   unless pkgs_to_install.empty?
     pkgs_to_install.each do |pkg|
       package pkg do
+          options "--force-yes"
           action :install
       end
     end
