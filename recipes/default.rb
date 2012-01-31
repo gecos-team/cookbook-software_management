@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: add_remove_software
+# Cookbook Name:: software_management
 # Recipe:: default
 #
 # Copyright 2011, Junta de Andalucía

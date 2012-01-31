@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: add_remove_software
+# Cookbook Name:: software_management
 # Recipe:: imgscan
 #
 # Copyright 2011, Junta de Andalucía
@@ -19,14 +19,14 @@
 
 if node["imgscan"]["install"] == "yes"
 
-  add_remove_software_package_list "imgscan" do
+  software_management_package_list "imgscan" do
     packages_to_install node["imgscan"]["packages"]
     action :process
   end
 
 elsif node["imgscan"]["install"] == "no"
 
-  add_remove_software_package_list "imgscan" do
+  software_management_package_list "imgscan" do
     packages_to_remove node["imgscan"]["packages"]
     action :process
   end

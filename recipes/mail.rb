@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: add_remove_software
+# Cookbook Name:: software_management
 # Recipe:: mail
 #
 # Copyright 2011, Junta de Andalucía
@@ -19,14 +19,14 @@
 
 if node["mail"]["install"] == "yes"
 
-  add_remove_software_package_list "mail" do
+  software_management_package_list "mail" do
     packages_to_install node["mail"]["packages"]
     action :process
   end
 
 elsif node["mail"]["install"] == "no"
 
-  add_remove_software_package_list "mail" do
+  software_management_package_list "mail" do
     packages_to_remove node["mail"]["packages"]
     action :process
   end

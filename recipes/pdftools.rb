@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: add_remove_software
+# Cookbook Name:: software_management
 # Recipe:: pdftools
 #
 # Copyright 2011, Junta de Andalucía
@@ -19,14 +19,14 @@
 
 if node["pdftools"]["install"] == "yes"
 
-  add_remove_software_package_list "pdftools" do
+  software_management_package_list "pdftools" do
     packages_to_install node["pdftools"]["packages"]
     action :process
   end
 
 elsif node["pdftools"]["install"] == "no"
 
-  add_remove_software_package_list "pdftools" do
+  software_management_package_list "pdftools" do
     packages_to_remove node["pdftools"]["packages"]
     action :process
   end

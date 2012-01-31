@@ -6,21 +6,21 @@ Generic cookbook for installing or removing software.
 Attributes
 ==========
 
-* `node["add_remove_software"]['packages']['to_install']` - A list of individual packages to be installed
-* `node["add_remove_software"]['packages']['to_remove']` - A list of individual packages to be removed
-* `node["add_remove_software"]['groups']['to_install']` - A group of packages to be installed
-* `node["add_remove_software"]['groups']['to_remove']` - A group of packages to be removed
+* `node["software_management"]['packages']['to_install']` - A list of individual packages to be installed
+* `node["software_management"]['packages']['to_remove']` - A list of individual packages to be removed
+* `node["software_management"]['groups']['to_install']` - A group of packages to be installed
+* `node["software_management"]['groups']['to_remove']` - A group of packages to be removed
 
 You can define your own groups of packages like this:
 
 ```
-default[:add_remove_software][:groups][:basic] = []
-default[:add_remove_software][:groups][:office] = [
+default[:software_management][:groups][:basic] = []
+default[:software_management][:groups][:office] = [
                                                    'libreoffice-writer',
                                                    'libreoffice-calc',
                                                    'libreoffice-impress'
                                                   ]
-default[:add_remove_software][:groups][:internet] = [
+default[:software_management][:groups][:internet] = [
                                                      'firefox',
                                                      'firefox-firma'
                                                     ]

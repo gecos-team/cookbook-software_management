@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: add_remove_software
+# Cookbook Name:: software_management
 # Recipe:: a11y
 #
 # Copyright 2011, Junta de Andalucía
@@ -19,14 +19,14 @@
 
 if node["a11y"]["install"] == "yes"
 
-  add_remove_software_package_list "a11y" do
+  software_management_package_list "a11y" do
     packages_to_install node["a11y"]["packages"]
     action :process
   end
 
 elsif node["a11y"]["install"] == "no"
 
-  add_remove_software_package_list "a11y" do
+  software_management_package_list "a11y" do
     packages_to_remove node["a11y"]["packages"]
     action :process
   end

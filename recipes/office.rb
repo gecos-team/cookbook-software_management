@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: add_remove_software
+# Cookbook Name:: software_management
 # Recipe:: office
 #
 # Copyright 2011, Junta de Andalucía
@@ -19,14 +19,14 @@
 
 if node["office"]["install"] == "yes"
 
-  add_remove_software_package_list "office" do
+  software_management_package_list "office" do
     packages_to_install node["office"]["packages"]
     action :process
   end
 
 elsif node["office"]["install"] == "no"
 
-  add_remove_software_package_list "office" do
+  software_management_package_list "office" do
     packages_to_remove node["office"]["packages"]
     action :process
   end

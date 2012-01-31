@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: add_remove_software
+# Cookbook Name:: software_management
 # Recipe:: imgedit
 #
 # Copyright 2011, Junta de Andalucía
@@ -19,14 +19,14 @@
 
 if node["imgedit"]["install"] == "yes"
 
-  add_remove_software_package_list "imgedit" do
+  software_management_package_list "imgedit" do
     packages_to_install node["imgedit"]["packages"]
     action :process
   end
 
 elsif node["imgedit"]["install"] == "no"
 
-  add_remove_software_package_list "imgedit" do
+  software_management_package_list "imgedit" do
     packages_to_remove node["imgedit"]["packages"]
     action :process
   end

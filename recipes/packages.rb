@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: add_remove_software
+# Cookbook Name:: software_management
 # Recipe:: packages
 #
 # Copyright 2011, Junta de Andalucía
@@ -27,7 +27,7 @@ end
 to_install_hash.each do |pkg|
   to_install << pkg[:name]
 end
-add_remove_software_package_list "packages" do
+software_management_package_list "packages" do
   packages_to_install to_install
   packages_to_remove to_remove
   action :process
