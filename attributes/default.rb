@@ -61,7 +61,7 @@ default[:profile_collaboration][:packages] = [
 default[:profile_accessibility][:install] = 'no'
 default[:profile_accessibility][:packages] = [
                             'gnome-orca',
-                            'caribou'
+                            'dasher'
                             ]
 
 default[:profile_tablet][:install] = 'no'
