@@ -1,6 +1,6 @@
 # List of individual packages
-default[:packages][:to_install] = {}
-default[:packages][:to_remove] = {}
+default[:others][:to_install] = {}
+default[:others][:to_remove] = {}
 
 # Definition of the groups of packages
 default[:profile_office][:install] = 'no'

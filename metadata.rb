@@ -4,7 +4,7 @@ license           "Apache 2.0"
 description       "Add or Remove software from a workstation"
 version           "0.2.1"
 
-provides            "software_management::packages"
+provides            "software_management::others"
 
 provides            "software_management::profile_office"
 provides            "software_management::profile_mail"
@@ -16,7 +16,7 @@ provides            "software_management::profile_collaboration"
 provides            "software_management::profile_accessibility"
 provides            "software_management::profile_tablet"
 
-recipe            "software_management::packages", "add or remove package lists"
+recipe            "software_management::others", "add or remove package lists"
 
 
 recipe            "software_management::profile_office", "add or remove 'office' related packages"
@@ -36,38 +36,38 @@ recipe            "software_management::profile_tablet", "add or remove 'tablet'
 end
 
 
-attribute 'packages/to_install',
+attribute 'others/to_install',
   :display_name => "Packages to install",
   :description  => "List of individual packages to be installed",
   :type         => "array",
   :required     => "required",
-  :recipes      => [ 'software_management::packages' ]
+  :recipes      => [ 'software_management::others' ]
 
-attribute 'packages/to_install/name',
+attribute 'others/to_install/name',
   :display_name => "Package to install",
   :description  => "Package name to install",
   :type         => "string",
   :required     => "required",
   :wizard       => "search",
   :order        => "0",
-  :recipes      => [ 'software_management::packages' ]
+  :recipes      => [ 'software_management::others' ]
 
 
-attribute 'packages/to_remove',
+attribute 'others/to_remove',
   :display_name => "Packages to remove",
   :description  => "List of individual packages to be removed",
   :type         => "array",
   :required     => "required",
-  :recipes      => [ 'software_management::packages' ]
+  :recipes      => [ 'software_management::others' ]
 
-attribute 'packages/to_remove/name',
+attribute 'others/to_remove/name',
   :display_name => "Package to remove:",
   :description  => "Package name to remove",
   :type         => "string",
   :required     => "required",
   :wizard       => "search",
   :order        => "1",
-  :recipes      => [ 'software_management::packages' ]
+  :recipes      => [ 'software_management::others' ]
 
 
 attribute 'profile_office/install',
