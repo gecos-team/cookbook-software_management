@@ -72,3 +72,14 @@ default[:profile_tablet][:packages] = [
                               'cellwriter'
                               ]
 
+default[:profile_web_firma][:install] = 'no'
+default[:profile_web_firma][:packages] = [
+                              'firefox-firma'
+                              ]
+
+default[:profile_web][:install] = 'no'
+default[:profile_web][:packages] = [
+                              'firefox',
+                              'firefox-locale-es'
+                              ]
+

@@ -15,6 +15,8 @@ provides            "software_management::profile_remote_access"
 provides            "software_management::profile_collaboration"
 provides            "software_management::profile_accessibility"
 provides            "software_management::profile_tablet"
+provides            "software_management::profile_web"
+provides            "software_management::profile_web_firma"
 
 recipe            "software_management::others", "add or remove package lists"
 
@@ -28,6 +30,8 @@ recipe            "software_management::profile_remote_access", "add or remove '
 recipe            "software_management::profile_collaboration", "add or remove 'collaborative' related packages"
 recipe            "software_management::profile_accessibility", "add or remove 'a11y' related packages"
 recipe            "software_management::profile_tablet", "add or remove 'tablet' related packages"
+recipe            "software_management::profile_web", "add or remove 'web' related packages"
+recipe            "software_management::profile_web_firma", "add or remove 'web_firma' related packages"
 
 
 
@@ -158,4 +162,22 @@ attribute 'profile_tablet/install',
   :required     => "required",
   :default      => "no",
   :recipes      => [ 'software_management::profile_tablet' ]
+
+attribute 'profile_web/install',
+  :display_name => "Install 'web' software profile?",
+  :description  => "\"no\" means that 'web' software profile will be removed",
+  :type         => "string",
+  :choice       => [ "no" , "yes" ],
+  :required     => "required",
+  :default      => "no",
+  :recipes      => [ 'software_management::profile_web' ]
+
+attribute 'profile_web_firma/install',
+  :display_name => "Install 'web_firma' software profile?",
+  :description  => "\"no\" means that 'web_firma' software profile will be removed",
+  :type         => "string",
+  :choice       => [ "no" , "yes" ],
+  :required     => "required",
+  :default      => "no",
+  :recipes      => [ 'software_management::profile_web_firma' ]
 
