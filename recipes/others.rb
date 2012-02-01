@@ -22,11 +22,11 @@ to_remove = []
 to_install = []
 
 to_remove_hash.each do |pkg|
-  to_remove << pkg[:name]
+  to_remove << pkg[:name] unless pkg[:name].empty?
 end
 
 to_install_hash.each do |pkg|
-  to_install << pkg[:name]
+  to_install << pkg[:name] unless pkg[:name].empty?
 end
 
 software_management_package_list "to install: #{to_install.to_s} to remove: #{to_remove.to_s}" do
