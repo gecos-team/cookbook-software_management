@@ -4,8 +4,8 @@ license           "Apache 2.0"
 description       "Add or Remove software from a workstation"
 version           "0.2.1"
 
-provides            "workstation_management::automatic_updates"
-recipe            "workstation_management::automatic_updates", "Set if node updates automatically or not"
+provides            "software_management::automatic_updates"
+recipe            "software_management::automatic_updates", "Set if node updates automatically or not"
 
 provides            "software_management::others"
 
@@ -192,7 +192,7 @@ attribute 'automatic_updates/on_boot',
   :required     => "required",
   :default      => "false",
   :order        => "0",
-  :recipes      => [ 'workstation_management::automatic_updates' ]
+  :recipes      => [ 'software_management::automatic_updates' ]
 
 attribute 'automatic_updates/on_login',
   :display_name => "Automatic updates on login?",
@@ -202,7 +202,7 @@ attribute 'automatic_updates/on_login',
   :required     => "required",
   :default      => "false",
   :order        => "1",
-  :recipes      => [ 'workstation_management::automatic_updates' ]
+  :recipes      => [ 'software_management::automatic_updates' ]
 
 
 attribute 'automatic_updates/on_monday',
@@ -213,7 +213,7 @@ attribute 'automatic_updates/on_monday',
   :required     => "required",
   :default      => "off",
   :order        => "2",
-  :recipes      => [ 'workstation_management::automatic_updates' ]
+  :recipes      => [ 'software_management::automatic_updates' ]
 
 attribute 'automatic_updates/on_monday_time',
   :display_name => "Time (HH:MM)",
@@ -223,7 +223,7 @@ attribute 'automatic_updates/on_monday_time',
   :required     => "required",
   :default      => "00:00",
   :order        => "3",
-  :recipes      => [ 'workstation_management::automatic_updates' ]
+  :recipes      => [ 'software_management::automatic_updates' ]
 
 attribute 'automatic_updates/on_tuesday',
   :display_name => "Automatic updates on Tuesday?",
@@ -233,7 +233,7 @@ attribute 'automatic_updates/on_tuesday',
   :required     => "required",
   :default      => "off",
   :order        => "4",
-  :recipes      => [ 'workstation_management::automatic_updates' ]
+  :recipes      => [ 'software_management::automatic_updates' ]
 
 attribute 'automatic_updates/on_tuesday_time',
   :display_name => "Time (HH:MM)",
@@ -243,7 +243,7 @@ attribute 'automatic_updates/on_tuesday_time',
   :required     => "required",
   :default      => "00:00",
   :order        => "5",
-  :recipes      => [ 'workstation_management::automatic_updates' ]
+  :recipes      => [ 'software_management::automatic_updates' ]
 
 attribute 'automatic_updates/on_wednesday',
   :display_name => "Automatic updates on Wednesday?",
@@ -253,7 +253,7 @@ attribute 'automatic_updates/on_wednesday',
   :required     => "required",
   :default      => "off",
   :order        => "6",
-  :recipes      => [ 'workstation_management::automatic_updates' ]
+  :recipes      => [ 'software_management::automatic_updates' ]
 
 attribute 'automatic_updates/on_wednesday_time',
   :display_name => "Time (HH:MM)",
@@ -263,7 +263,7 @@ attribute 'automatic_updates/on_wednesday_time',
   :required     => "required",
   :default      => "00:00",
   :order        => "7",
-  :recipes      => [ 'workstation_management::automatic_updates' ]
+  :recipes      => [ 'software_management::automatic_updates' ]
 
 attribute 'automatic_updates/on_thursday',
   :display_name => "Automatic updates on Thursday?",
@@ -273,7 +273,7 @@ attribute 'automatic_updates/on_thursday',
   :required     => "required",
   :default      => "off",
   :order        => "8",
-  :recipes      => [ 'workstation_management::automatic_updates' ]
+  :recipes      => [ 'software_management::automatic_updates' ]
 
 attribute 'automatic_updates/on_thursday_time',
   :display_name => "Time (HH:MM)",
@@ -283,7 +283,7 @@ attribute 'automatic_updates/on_thursday_time',
   :required     => "required",
   :default      => "00:00",
   :order        => "9",
-  :recipes      => [ 'workstation_management::automatic_updates' ]
+  :recipes      => [ 'software_management::automatic_updates' ]
 
 attribute 'automatic_updates/on_friday',
   :display_name => "Automatic updates on Friday?",
@@ -293,7 +293,7 @@ attribute 'automatic_updates/on_friday',
   :required     => "required",
   :default      => "off",
   :order        => "10",
-  :recipes      => [ 'workstation_management::automatic_updates' ]
+  :recipes      => [ 'software_management::automatic_updates' ]
 
 attribute 'automatic_updates/on_friday_time',
   :display_name => "Time (HH:MM)",
@@ -303,7 +303,7 @@ attribute 'automatic_updates/on_friday_time',
   :required     => "required",
   :default      => "00:00",
   :order        => "11",
-  :recipes      => [ 'workstation_management::automatic_updates' ]
+  :recipes      => [ 'software_management::automatic_updates' ]
 
 attribute 'automatic_updates/on_saturday',
   :display_name => "Automatic updates on Saturday?",
@@ -313,7 +313,7 @@ attribute 'automatic_updates/on_saturday',
   :required     => "required",
   :default      => "off",
   :order        => "12",
-  :recipes      => [ 'workstation_management::automatic_updates' ]
+  :recipes      => [ 'software_management::automatic_updates' ]
 
 attribute 'automatic_updates/on_saturday_time',
   :display_name => "Time (HH:MM)",
@@ -323,7 +323,7 @@ attribute 'automatic_updates/on_saturday_time',
   :required     => "required",
   :default      => "00:00",
   :order        => "13",
-  :recipes      => [ 'workstation_management::automatic_updates' ]
+  :recipes      => [ 'software_management::automatic_updates' ]
 
 attribute 'automatic_updates/on_sunday',
   :display_name => "Automatic updates on Sunday?",
@@ -333,7 +333,7 @@ attribute 'automatic_updates/on_sunday',
   :required     => "required",
   :default      => "off",
   :order        => "14",
-  :recipes      => [ 'workstation_management::automatic_updates' ]
+  :recipes      => [ 'software_management::automatic_updates' ]
 
 attribute 'automatic_updates/on_sunday_time',
   :display_name => "Time (HH:MM)",
@@ -343,7 +343,7 @@ attribute 'automatic_updates/on_sunday_time',
   :required     => "required",
   :default      => "00:00",
   :order        => "15",
-  :recipes      => [ 'workstation_management::automatic_updates' ]
+  :recipes      => [ 'software_management::automatic_updates' ]
 
 
 attribute 'automatic_updates/max_random_time_span',
@@ -354,4 +354,4 @@ attribute 'automatic_updates/max_random_time_span',
   :required     => "required",
   :default      => "000",
   :order        => "16",
-  :recipes      => [ 'workstation_management::automatic_updates' ]
+  :recipes      => [ 'software_management::automatic_updates' ]
