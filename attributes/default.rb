@@ -83,3 +83,16 @@ default[:profile_web][:packages] = [
                               'firefox-locale-es'
                               ]
 
+default[:automatic_updates][:on_boot]='false'
+default[:automatic_updates][:on_login]='false'
+default[:automatic_updates][:on_monday]='off'
+default[:automatic_updates][:on_monday_time]='00:00'
+default[:automatic_updates][:on_tuesday]='off'
+default[:automatic_updates][:on_tuesday_time]='00:00'
+default[:automatic_updates][:on_wednesday]='off'
+default[:automatic_updates][:on_wednesday_time]='00:00'
+default[:automatic_updates][:on_thursday]='off'
+default[:automatic_updates][:on_thursday_time]='00:00'
+default[:automatic_updates][:on_friday]='off'
+default[:automatic_updates][:on_friday_time]='00:00'
+default[:automatic_updates][:max_random_time_span]='000'

@@ -1,4 +1,3 @@
-#
 # Cookbook Name:: software_management
 # Recipe:: default
 #
