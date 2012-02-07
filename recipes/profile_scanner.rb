@@ -17,17 +17,25 @@
 # limitations under the License.
 #
 
+scanner_pkg = node["profile_scanner"]["packages"].map{|x| x[1]}.flatten
+scan_pkg=[]
+scanner_pkg.each do |pkg|
+  scan_pkg << pkg[:name] unless pkg[:name].empty?
+end
+
+
+
 if node["profile_scanner"]["install"] == "yes"
 
   software_management_package_list "imgscan" do
-    packages_to_install node["profile_scanner"]["packages"]
+    packages_to_install scan_pkg
     action :process
   end
 
 elsif node["profile_scanner"]["install"] == "no"
 
   software_management_package_list "imgscan" do
-    packages_to_remove node["profile_scanner"]["packages"]
+    packages_to_remove scan_pkg
     action :process
   end
 

@@ -17,17 +17,24 @@
 # limitations under the License.
 #
 
+collaborative_pkg = node["profile_collaborative"]["packages"].map{|x| x[1]}.flatten
+coll_pkg=[]
+collaborative_pkg.each do |pkg|
+  coll_pkg << pkg[:name] unless pkg[:name].empty?
+end
+
+
 if node["profile_collaboration"]["install"] == "yes"
 
   software_management_package_list "collaborative" do
-    packages_to_install node["profile_collaboration"]["packages"]
+    packages_to_install coll_pkg
     action :process
   end
 
 elsif node["profile_collaboration"]["install"] == "no"
 
   software_management_package_list "collaborative" do
-    packages_to_remove node["profile_collaboration"]["packages"]
+    packages_to_remove coll_pkg
     action :process
   end
 

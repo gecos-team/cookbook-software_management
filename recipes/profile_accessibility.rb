@@ -17,17 +17,23 @@
 # limitations under the License.
 #
 
+accessibility_pkg = node["profile_accessibility"]["packages"].map{|x| x[1]}.flatten
+acc_pkg=[]
+accessibility_pkg.each do |pkg|
+  acc_pkg << pkg[:name] unless pkg[:name].empty?
+end
+
 if node["profile_accessibility"]["install"] == "yes"
 
   software_management_package_list "a11y" do
-    packages_to_install node["profile_accessibility"]["packages"]
+    packages_to_install acc_pkg
     action :process
   end
 
 elsif node["profile_accessibility"]["install"] == "no"
 
   software_management_package_list "a11y" do
-    packages_to_remove node["profile_accessibility"]["packages"]
+    packages_to_remove acc_pkg
     action :process
   end
 

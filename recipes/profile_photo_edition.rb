@@ -17,17 +17,24 @@
 # limitations under the License.
 #
 
+photo_edition_pkg = node["profile_photo_edition"]["packages"].map{|x| x[1]}.flatten
+photo_pkg=[]
+photo_edition_pkg.each do |pkg|
+  photo_pkg << pkg[:name] unless pkg[:name].empty?
+end
+
+
 if node["profile_photo_edition"]["install"] == "yes"
 
   software_management_package_list "imgedit" do
-    packages_to_install node["profile_photo_edition"]["packages"]
+    packages_to_install photo_pkg
     action :process
   end
 
 elsif node["profile_photo_edition"]["install"] == "no"
 
   software_management_package_list "imgedit" do
-    packages_to_remove node["profile_photo_edition"]["packages"]
+    packages_to_remove photo_pkg
     action :process
   end
 

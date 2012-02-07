@@ -17,17 +17,25 @@
 # limitations under the License.
 #
 
+remote_access_pkg = node["profile_remote_access"]["packages"].map{|x| x[1]}.flatten
+remote_pkg=[]
+remote_access_pkg.each do |pkg|
+  remote_pkg << pkg[:name] unless pkg[:name].empty?
+end
+
+
+
 if node["profile_remote_access"]["install"] == "yes"
 
   software_management_package_list "remoteadmin" do
-    packages_to_install node["profile_remote_access"]["packages"]
+    packages_to_install remote_pkg
     action :process
   end
 
 elsif node["profile_remote_access"]["install"] == "no"
 
   software_management_package_list "remoteadmin" do
-    packages_to_remove node["profile_remote_access"]["packages"]
+    packages_to_remove remote_pkg
     action :process
   end
 

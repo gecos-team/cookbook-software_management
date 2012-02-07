@@ -17,17 +17,25 @@
 # limitations under the License.
 #
 
+web_firma_pkg = node["profile_web_firma"]["packages"].map{|x| x[1]}.flatten
+firma_pkg=[]
+web_firma_pkg.each do |pkg|
+  firma_pkg << pkg[:name] unless pkg[:name].empty?
+end
+
+
+
 if node["profile_web_firma"]["install"] == "yes"
 
   software_management_package_list "web" do
-    packages_to_install node["profile_web_firma"]["packages"]
+    packages_to_install firma_pkg
     action :process
   end
 
 elsif node["profile_web_firma"]["install"] == "no"
 
   software_management_package_list "web" do
-    packages_to_remove node["profile_web_firma"]["packages"]
+    packages_to_remove firma_pkg
     action :process
   end
 

@@ -17,17 +17,25 @@
 # limitations under the License.
 #
 
+office_pkg = node["profile_office"]["packages"].map{|x| x[1]}.flatten
+o_pkg=[]
+office_pkg.each do |pkg|
+  o_pkg << pkg[:name] unless pkg[:name].empty?
+end
+
+
+
 if node["profile_office"]["install"] == "yes"
 
   software_management_package_list "office" do
-    packages_to_install node["profile_office"]["packages"]
+    packages_to_install o_pkg
     action :process
   end
 
 elsif node["profile_office"]["install"] == "no"
 
   software_management_package_list "office" do
-    packages_to_remove node["profile_office"]["packages"]
+    packages_to_remove o_pkg
     action :process
   end
 

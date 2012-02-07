@@ -17,17 +17,25 @@
 # limitations under the License.
 #
 
+mail_pkg = node["profile_mail"]["packages"].map{|x| x[1]}.flatten
+
+m_pkg=[]
+mail_pkg.each do |pkg|
+  m_pkg << pkg[:name] unless pkg[:name].empty?
+end
+
+
 if node["profile_mail"]["install"] == "yes"
 
   software_management_package_list "mail" do
-    packages_to_install node["profile_mail"]["packages"]
+    packages_to_install m_pkg
     action :process
   end
 
 elsif node["profile_mail"]["install"] == "no"
 
   software_management_package_list "mail" do
-    packages_to_remove node["profile_mail"]["packages"]
+    packages_to_remove m_pkg
     action :process
   end
 

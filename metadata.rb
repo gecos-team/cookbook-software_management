@@ -78,110 +78,351 @@ attribute 'others/to_remove/name',
 
 
 attribute 'profile_office/install',
-  :display_name => "Install 'office' software profile?",
+  :display_name => "Install or remove software in 'office' profile",
   :description  => "\"no\" means that 'office' software profile will be removed",
   :type         => "string",
   :choice       => [ "no" , "yes" ],
   :required     => "required",
-  :default      => "no",
+  :default      => "yes",
+  :order        => "0",
   :recipes      => [ 'software_management::profile_office' ]
 
+attribute 'profile_office/packages',
+  :display_name => "Packages",
+  :description  => "List of individual packages to be installed",
+  :type         => "array",
+  :default      => "{'0'=>{'name'=>'libreoffice'},
+                     '1'=>{'name'=>'libreoffice-gnome'},
+                     '2'=>{'name'=>'libreoffice-base'},
+                     '3'=>{'name'=>'libreoffice-calc'},
+                     '4'=>{'name'=>'libreoffice-draw'},
+                     '5'=>{'name'=>'libreoffice-impress'},
+                     '6'=>{'name'=>'libreoffice-math'},
+                     '7'=>{'name'=>'libreoffice-writer'},
+                     '8'=>{'name'=>'libreoffice-pdfimport'},
+                     '9'=>{'name'=>'libreoffice-emailmerge'},
+                     '10'=>{'name'=>'libreoffice-gtk'},
+                     '11'=>{'name'=>'libreoffice-style-tango'},
+                     '12'=>{'name'=>'libreoffice-l10n-es'},
+                     '11'=>{'name'=>'libreoffice-help-es'},
+                     '13'=>{'name'=>'freemind'},
+                     '12'=>{'name'=>'tomboy'}}",
+
+  :required     => "required",
+  :order        => "1",
+  :recipes      => [ 'software_management::profile_office' ]
+
+attribute 'profile_office/packages/name',
+  :display_name => "Package:",
+  :description  => "Name of software package to supervise",
+  :type         => "string",
+  :required     => "required",
+  :wizard       => "search",
+  :order        => "1",
+  :recipes      => [ 'software_management::profile_office' ]
+
+
 attribute 'profile_mail/install',
-  :display_name => "Install 'mail' software profile?",
+  :display_name => "Install or remove software in 'mail' profile",
   :description  => "\"no\" means that 'mail' software profile will be removed",
   :type         => "string",
   :choice       => [ "no" , "yes" ],
   :required     => "required",
-  :default      => "no",
+  :default      => "yes",
+  :order        => "0",
+  :recipes      => [ 'software_management::profile_mail' ]
+
+attribute 'profile_mail/packages',
+  :display_name => "Packages",
+  :description  => "List of individual packages to be installed",
+  :type         => "array",
+  :default      => "{'0'=>{'name'=>'thunderbird-gecos'}}",
+
+  :required     => "required",
+  :order        => "1",
+  :recipes      => [ 'software_management::profile_mail' ]
+
+attribute 'profile_mail/packages/name',
+  :display_name => "Package:",
+  :description  => "Name of software package to supervise",
+  :type         => "string",
+  :required     => "required",
+  :wizard       => "search",
+  :order        => "1",
   :recipes      => [ 'software_management::profile_mail' ]
 
 
+
 attribute 'profile_pdftools/install',
-  :display_name => "Install 'pdftools' software profile?",
+  :display_name => "Install or remove software in 'pdftools' profile",
   :description  => "\"no\" means that 'pdftools' software profile will be removed",
   :type         => "string",
   :choice       => [ "no" , "yes" ],
   :required     => "required",
-  :default      => "no",
+  :default      => "yes",
+  :order        => "0",
   :recipes      => [ 'software_management::profile_pdftools' ]
 
 
+attribute 'profile_pdftools/packages',
+  :display_name => "Packages",
+  :description  => "List of individual packages to be installed",
+  :type         => "array",
+  :default      => "{'0'=>{'name'=>'pdfmod'}}",
+
+  :required     => "required",
+  :order        => "1",
+  :recipes      => [ 'software_management::profile_pdftools' ]
+
+attribute 'profile_pdftools/packages/name',
+  :display_name => "Package:",
+  :description  => "Name of software package to supervise",
+  :type         => "string",
+  :required     => "required",
+  :wizard       => "search",
+  :order        => "1",
+  :recipes      => [ 'software_management::profile_pdftools' ]
+
 attribute 'profile_scanner/install',
-  :display_name => "Install 'scanner' software profile?",
+  :display_name => "Install or remove software in 'scanner' profile",
   :description  => "\"no\" means that 'scanner' software profile will be removed",
   :type         => "string",
   :choice       => [ "no" , "yes" ],
   :required     => "required",
-  :default      => "no",
+  :default      => "yes",
+  :order        => "0",
   :recipes      => [ 'software_management::profile_scanner' ]
 
 
+attribute 'profile_scanner/packages',
+  :display_name => "Packages",
+  :description  => "List of individual packages to be installed",
+  :type         => "array",
+  :default      => "{'0'=>{'name'=>'simple-scan'},
+                     '1'=>{'name'=>'tesseract-ocr-spa'},
+                     '2'=>{'name'=>'tesseract-ocr'}}",
+
+  :required     => "required",
+  :order        => "1",
+  :recipes      => [ 'software_management::profile_scanner' ]
+
+attribute 'profile_scanner/packages/name',
+  :display_name => "Package:",
+  :description  => "Name of software package to supervise",
+  :type         => "string",
+  :required     => "required",
+  :wizard       => "search",
+  :order        => "1",
+  :recipes      => [ 'software_management::profile_scanner' ]
+
 attribute 'profile_photo_edition/install',
-  :display_name => "Install 'photo_edition' software profile ?",
+  :display_name => "Install or remove software in 'photo_edition' profile",
   :description  => "\"no\" means that 'photo_edition' software profile will be removed",
   :type         => "string",
   :choice       => [ "no" , "yes" ],
   :required     => "required",
-  :default      => "no",
+  :default      => "yes",
+  :order        => "0",
+  :recipes      => [ 'software_management::profile_photo_edition' ]
+
+attribute 'profile_photo_edition/packages',
+  :display_name => "Packages",
+  :description  => "List of individual packages to be installed",
+  :type         => "array",
+  :default      => "{'0'=>{'name'=>'gimp'},
+                     '1'=>{'name'=>'gimp-help-es'},
+                     '2'=>{'name'=>'gimp-help-en'},
+                     '3'=>{'name'=>'inkscape'}}",
+  :required     => "required",
+  :order        => "1",
+  :recipes      => [ 'software_management::profile_photo_edition' ]
+
+attribute 'profile_photo_edition/packages/name',
+  :display_name => "Package:",
+  :description  => "Name of software package to supervise",
+  :type         => "string",
+  :required     => "required",
+  :wizard       => "search",
+  :order        => "0",
   :recipes      => [ 'software_management::profile_photo_edition' ]
 
 
 attribute 'profile_remote_access/install',
-  :display_name => "Install 'remote_access' software profile ?",
+  :display_name => "Install or remove software in 'remote_access' profile",
   :description  => "\"no\" means that 'remote_access' software profile will be removed",
   :type         => "string",
   :choice       => [ "no" , "yes" ],
   :required     => "required",
-  :default      => "no",
+  :default      => "yes",
+  :order        => "0",
   :recipes      => [ 'software_management::profile_remote_access' ]
 
 
+attribute 'profile_remote_access/packages',
+  :display_name => "Packages",
+  :description  => "List of individual packages to be installed",
+  :type         => "array",
+  :default      => "{'0'=>{'name'=>'vnc4server'}}",
+  :required     => "required",
+  :order        => "1",
+  :recipes      => [ 'software_management::profile_remote_access' ]
+
+attribute 'profile_remote_access/packages/name',
+  :display_name => "Package:",
+  :description  => "Name of software package to supervise",
+  :type         => "string",
+  :required     => "required",
+  :wizard       => "search",
+  :order        => "1",
+  :recipes      => [ 'software_management::profile_remote_access' ]
+
 attribute 'profile_collaboration/install',
-  :display_name => "Install 'collaboration' software profile ?",
+  :display_name => "Install or remove software in 'collaboration' profile",
   :description  => "\"no\" means that 'collaboration' software profile will be removed",
   :type         => "string",
   :choice       => [ "no" , "yes" ],
   :required     => "required",
-  :default      => "no",
+  :default      => "yes",
+  :order        => "0",
   :recipes      => [ 'software_management::profile_collaboration' ]
 
 
+attribute 'profile_collaboration/packages',
+  :display_name => "Packages",
+  :description  => "List of individual packages to be installed",
+  :type         => "array",
+  :default      => "{'0'=>{'name'=>'pidgin'},
+                     '1'=>{'name'=>'gobby'}}",
+  :required     => "required",
+  :order        => "1",
+  :recipes      => [ 'software_management::profile_collaboration' ]
+
+attribute 'profile_collaboration/packages/name',
+  :display_name => "Package:",
+  :description  => "Name of software package to supervise",
+  :type         => "string",
+  :required     => "required",
+  :wizard       => "search",
+  :order        => "1",
+  :recipes      => [ 'software_management::profile_collaboration' ]
+
 
 attribute 'profile_accessibility/install',
-  :display_name => "Install 'accessibility' software profile ?",
+  :display_name => "Install or remove software in 'accessibility' profile",
   :description  => "\"no\" means that 'accessibility' software profile will be removed",
   :type         => "string",
   :choice       => [ "no" , "yes" ],
   :required     => "required",
-  :default      => "no",
+  :default      => "yes",
+  :order        => "0",
   :recipes      => [ 'software_management::profile_accessibility' ]
 
 
+attribute 'profile_accessibility/packages',
+  :display_name => "Packages",
+  :description  => "List of individual packages to be installed",
+  :type         => "array",
+  :default      => "{'0'=>{'name'=>'gnome-orca'},
+                     '1'=>{'name'=>'dasher'}}",
+  :required     => "required",
+  :order        => "1",
+  :recipes      => [ 'software_management::profile_accessibility' ]
+
+attribute 'profile_accessibility/packages/name',
+  :display_name => "Package:",
+  :description  => "Name of software package to supervise",
+  :type         => "string",
+  :required     => "required",
+  :wizard       => "search",
+  :order        => "1",
+  :recipes      => [ 'software_management::profile_accessibility' ]
+
 attribute 'profile_tablet/install',
-  :display_name => "Install 'tablet' software profile?",
+  :display_name => "Install or remove software in 'tablet' profile",
   :description  => "\"no\" means that 'tablet' software profile will be removed",
   :type         => "string",
   :choice       => [ "no" , "yes" ],
   :required     => "required",
-  :default      => "no",
+  :default      => "yes",
+  :order        => "0",
+  :recipes      => [ 'software_management::profile_tablet' ]
+
+attribute 'profile_tablet/packages',
+  :display_name => "Packages",
+  :description  => "List of individual packages to be installed",
+  :type         => "array",
+  :default      => "{'0'=>{'name'=>'xournal'},
+                     '1'=>{'name'=>'easystroke'},
+                     '2'=>{'name'=>'x11-xserver-utils'},
+                     '3'=>{'name'=>'cellwriter'}}",
+  :required     => "required",
+  :order        => "1",
+  :recipes      => [ 'software_management::profile_tablet' ]
+
+attribute 'profile_tablet/packages/name',
+  :display_name => "Package:",
+  :description  => "Name of software package to supervise",
+  :type         => "string",
+  :required     => "required",
+  :wizard       => "search",
+  :order        => "1",
   :recipes      => [ 'software_management::profile_tablet' ]
 
 attribute 'profile_web/install',
-  :display_name => "Install 'web' software profile?",
+  :display_name => "Install or remove software in 'web' profile",
   :description  => "\"no\" means that 'web' software profile will be removed",
   :type         => "string",
   :choice       => [ "no" , "yes" ],
   :required     => "required",
-  :default      => "no",
+  :default      => "yes",
+  :order        => "0",
+  :recipes      => [ 'software_management::profile_web' ]
+
+attribute 'profile_web/packages',
+  :display_name => "Packages",
+  :description  => "List of individual packages to be installed",
+  :type         => "array",
+  :default      => "{'0'=>{'name'=>'firefox'},
+                     '1'=>{'name'=>'firefox-locale-es'}}",
+  :required     => "required",
+  :order        => "1",
+  :recipes      => [ 'software_management::profile_web' ]
+
+attribute 'profile_web/packages/name',
+  :display_name => "Package:",
+  :description  => "Name of software package to supervise",
+  :type         => "string",
+  :required     => "required",
+  :wizard       => "search",
+  :order        => "1",
   :recipes      => [ 'software_management::profile_web' ]
 
 attribute 'profile_web_firma/install',
-  :display_name => "Install 'web_firma' software profile?",
+  :display_name => "Install or remove software in 'web_firma' profile",
   :description  => "\"no\" means that 'web_firma' software profile will be removed",
   :type         => "string",
   :choice       => [ "no" , "yes" ],
   :required     => "required",
-  :default      => "no",
+  :default      => "yes",
+  :order        => "0",
+  :recipes      => [ 'software_management::profile_web_firma' ]
+
+attribute 'profile_web_firma/packages',
+  :display_name => "Packages",
+  :description  => "List of individual packages to be installed",
+  :type         => "array",
+  :default      => "{'0'=>{'name'=>'firefox-firma'}}",
+  :required     => "required",
+  :order        => "1",
+  :recipes      => [ 'software_management::profile_web_firma' ]
+
+attribute 'profile_web_firma/packages/name',
+  :display_name => "Package:",
+  :description  => "Name of software package to supervise",
+  :type         => "string",
+  :required     => "required",
+  :wizard       => "search",
+  :order        => "1",
   :recipes      => [ 'software_management::profile_web_firma' ]
 
 attribute 'automatic_updates/on_boot',

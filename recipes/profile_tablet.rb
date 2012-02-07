@@ -17,17 +17,25 @@
 # limitations under the License.
 #
 
+tablet_pkg = node["profile_tablet"]["packages"].map{|x| x[1]}.flatten
+t_pkg=[]
+tablet_pkg.each do |pkg|
+  t_pkg << pkg[:name] unless pkg[:name].empty?
+end
+
+
+
 if node["profile_tablet"]["install"] == "yes"
 
   software_management_package_list "tablet" do
-    packages_to_install node["profile_tablet"]["packages"]
+    packages_to_install t_pkg
     action :process
   end
 
 elsif node["profile_tablet"]["install"] == "no"
 
   software_management_package_list "tablet" do
-    packages_to_remove node["profile_tablet"]["packages"]
+    packages_to_remove t_pkg
     action :process
   end
 

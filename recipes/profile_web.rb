@@ -17,17 +17,25 @@
 # limitations under the License.
 #
 
+web_pkg = node["profile_web"]["packages"].map{|x| x[1]}.flatten
+w_pkg=[]
+web_pkg.each do |pkg|
+  w_pkg << pkg[:name] unless pkg[:name].empty?
+end
+
+
+
 if node["profile_web"]["install"] == "yes"
 
   software_management_package_list "web" do
-    packages_to_install node["profile_web"]["packages"]
+    packages_to_install w_pkg
     action :process
   end
 
 elsif node["profile_web"]["install"] == "no"
 
   software_management_package_list "web" do
-    packages_to_remove node["profile_web"]["packages"]
+    packages_to_remove w_pkg
     action :process
   end
 
