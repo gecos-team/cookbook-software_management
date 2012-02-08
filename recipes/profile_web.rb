@@ -17,10 +17,9 @@
 # limitations under the License.
 #
 
-web_pkg = node["profile_web"]["packages"].map{|x| x[1]}.flatten
 w_pkg=[]
-web_pkg.each do |pkg|
-  w_pkg << pkg[:name] unless pkg[:name].empty?
+node["profile_web"]["packages"].each do |pkg|
+  w_pkg << pkg['name'] unless pkg['name'].empty?
 end
 
 

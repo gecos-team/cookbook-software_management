@@ -17,10 +17,9 @@
 # limitations under the License.
 #
 
-scanner_pkg = node["profile_scanner"]["packages"].map{|x| x[1]}.flatten
 scan_pkg=[]
-scanner_pkg.each do |pkg|
-  scan_pkg << pkg[:name] unless pkg[:name].empty?
+node["profile_scanner"]["packages"].each do |pkg|
+  scan_pkg << pkg['name'] unless pkg['name'].empty?
 end
 
 

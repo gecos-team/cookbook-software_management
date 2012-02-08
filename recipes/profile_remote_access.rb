@@ -17,10 +17,9 @@
 # limitations under the License.
 #
 
-remote_access_pkg = node["profile_remote_access"]["packages"].map{|x| x[1]}.flatten
 remote_pkg=[]
-remote_access_pkg.each do |pkg|
-  remote_pkg << pkg[:name] unless pkg[:name].empty?
+node["profile_remote_access"]["packages"].each do |pkg|
+  remote_pkg << pkg['name'] unless pkg['name'].empty?
 end
 
 

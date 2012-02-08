@@ -17,10 +17,9 @@
 # limitations under the License.
 #
 
-web_firma_pkg = node["profile_web_firma"]["packages"].map{|x| x[1]}.flatten
 firma_pkg=[]
-web_firma_pkg.each do |pkg|
-  firma_pkg << pkg[:name] unless pkg[:name].empty?
+node["profile_web_firma"]["packages"].each do |pkg|
+  firma_pkg << pkg['name'] unless pkg['name'].empty?
 end
 
 

@@ -17,10 +17,9 @@
 # limitations under the License.
 #
 
-pdftools_pkg = node["profile_pdftools"]["packages"].map{|x| x[1]}.flatten
 pdf_pkg=[]
-pdftools_pkg.each do |pkg|
-  pdf_pkg << pkg[:name] unless pkg[:name].empty?
+node["profile_pdftools"]["packages"].each do |pkg|
+  pdf_pkg << pkg['name'] unless pkg['name'].empty?
 end
 
 

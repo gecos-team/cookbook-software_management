@@ -17,10 +17,9 @@
 # limitations under the License.
 #
 
-photo_edition_pkg = node["profile_photo_edition"]["packages"].map{|x| x[1]}.flatten
 photo_pkg=[]
-photo_edition_pkg.each do |pkg|
-  photo_pkg << pkg[:name] unless pkg[:name].empty?
+node["profile_photo_edition"]["packages"].each do |pkg|
+  photo_pkg << pkg['name'] unless pkg['name'].empty?
 end
 
 

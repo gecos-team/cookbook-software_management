@@ -17,11 +17,10 @@
 # limitations under the License.
 #
 
-mail_pkg = node["profile_mail"]["packages"].map{|x| x[1]}.flatten
 
 m_pkg=[]
-mail_pkg.each do |pkg|
-  m_pkg << pkg[:name] unless pkg[:name].empty?
+node["profile_mail"]["packages"].each do |pkg|
+  m_pkg << pkg['name'] unless pkg['name'].empty?
 end
 
 

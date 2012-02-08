@@ -17,10 +17,10 @@
 # limitations under the License.
 #
 
-accessibility_pkg = node["profile_accessibility"]["packages"].map{|x| x[1]}.flatten
+
 acc_pkg=[]
-accessibility_pkg.each do |pkg|
-  acc_pkg << pkg[:name] unless pkg[:name].empty?
+node["profile_accessibility"]["packages"].each do |pkg|
+  acc_pkg << pkg['name'] unless pkg['name'].empty?
 end
 
 if node["profile_accessibility"]["install"] == "yes"

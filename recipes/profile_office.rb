@@ -17,13 +17,10 @@
 # limitations under the License.
 #
 
-office_pkg = node["profile_office"]["packages"].map{|x| x[1]}.flatten
 o_pkg=[]
-office_pkg.each do |pkg|
-  o_pkg << pkg[:name] unless pkg[:name].empty?
+node["profile_office"]["packages"].each do |pkg|
+  o_pkg << pkg['name'] unless pkg['name'].empty?
 end
-
-
 
 if node["profile_office"]["install"] == "yes"
 

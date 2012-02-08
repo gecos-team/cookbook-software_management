@@ -17,10 +17,9 @@
 # limitations under the License.
 #
 
-tablet_pkg = node["profile_tablet"]["packages"].map{|x| x[1]}.flatten
 t_pkg=[]
-tablet_pkg.each do |pkg|
-  t_pkg << pkg[:name] unless pkg[:name].empty?
+node["profile_tablet"]["packages"].each do |pkg|
+  t_pkg << pkg['name'] unless pkg['name'].empty?
 end
 
 

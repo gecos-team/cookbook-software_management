@@ -17,10 +17,9 @@
 # limitations under the License.
 #
 
-collaborative_pkg = node["profile_collaboration"]["packages"].map{|x| x[1]}.flatten
 coll_pkg=[]
-collaborative_pkg.each do |pkg|
-  coll_pkg << pkg[:name] unless pkg[:name].empty?
+node["profile_collaboration"]["packages"].each do |pkg|
+  coll_pkg << pkg['name'] unless pkg['name'].empty?
 end
 
 

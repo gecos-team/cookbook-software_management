@@ -16,17 +16,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-to_install_hash = node["others"]["to_install"].map{|x| x[1]}.flatten
-to_remove_hash = node["others"]["to_remove"].map{|x| x[1]}.flatten
 to_remove = []
 to_install = []
 
-to_remove_hash.each do |pkg|
-  to_remove << pkg[:name] unless pkg[:name].empty?
+node["others"]["to_remove"].each do |pkg|
+  to_remove << pkg['name'] unless pkg['name'].empty?
 end
 
-to_install_hash.each do |pkg|
-  to_install << pkg[:name] unless pkg[:name].empty?
+node["others"]["to_install"].each do |pkg|
+  to_install << pkg['name'] unless pkg['name'].empty?
 end
 
 software_management_package_list "to install: #{to_install.to_s} to remove: #{to_remove.to_s}" do
