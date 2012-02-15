@@ -83,40 +83,39 @@ node["automatic_updates"]["on_friday"] == "on"
     span_hour, span_min = time_span.divmod(60)
   end
  
-  cron_values = ""
   if node["automatic_updates"]["on_monday"] == "on"
     hour, min = node["automatic_updates"]["on_monday_time"].split(":")
-    cron_values = cron_values + "\n" + "#{min+span_min} #{hour+span_hour}  * * 1   root    test -x /usr/sbin/cron-apt && /usr/sbin/cron-apt /etc/cron-apt/config"
+    mon_time = "#{min.to_i + span_min} #{hour.to_i + span_hour}"
   end
 
   if node["automatic_updates"]["on_tuesday"] == "on"
     hour, min = node["automatic_updates"]["on_tuesday_time"].split(":")
-    cron_values = cron_values + "\n" + "#{min+span_min} #{hour+span_hour}  * * 2   root    test -x /usr/sbin/cron-apt && /usr/sbin/cron-apt /etc/cron-apt/config"
+    tue_time = "#{min.to_i + span_min} #{hour.to_i + span_hour}"
   end
 
   if node["automatic_updates"]["on_wednesday"] != "on"
     hour, min = node["automatic_updates"]["on_wednesday_time"].split(":")
-    cron_values = cron_values + "\n" + "#{min+span_min} #{hour+span_hour}  * * 3   root    test -x /usr/sbin/cron-apt && /usr/sbin/cron-apt /etc/cron-apt/config"
+    wed_time = "#{min.to_i + span_min} #{hour.to_i + span_hour}"
   end
 
   if node["automatic_updates"]["on_thursday"] != "on"
     hour, min = node["automatic_updates"]["on_thursday_time"].split(":")
-    cron_values = cron_values + "\n" + "#{min+span_min} #{hour+span_hour}  * * 4   root    test -x /usr/sbin/cron-apt && /usr/sbin/cron-apt /etc/cron-apt/config"
+    thu_time = "#{min.to_i + span_min} #{hour.to_i + span_hour}"
   end
 
   if node["automatic_updates"]["on_friday"] != "on"
     hour, min = node["automatic_updates"]["on_friday_time"].split(":")
-    cron_values = cron_values + "\n" + "#{min+span_min} #{hour+span_hour}  * * 5   root    test -x /usr/sbin/cron-apt && /usr/sbin/cron-apt /etc/cron-apt/config"
+    fri_time = "#{min.to_i + span_min} #{hour.to_i + span_hour}"
   end
 
   if node["automatic_updates"]["on_saturday"] != "on"
     hour, min = node["automatic_updates"]["on_saturday_time"].split(":")
-    cron_values = cron_values + "\n" + "#{min+span_min} #{hour+span_hour}  * * 6   root    test -x /usr/sbin/cron-apt && /usr/sbin/cron-apt /etc/cron-apt/config"
+    sat_time = "#{min.to_i + span_min} #{hour.to_i + span_hour}"
   end
 
   if node["automatic_updates"]["on_sunday"] != "on"
     hour, min = node["automatic_updates"]["on_sunday_time"].split(":")
-    cron_values = cron_values + "\n" + "#{min+span_min} #{hour+span_hour}  * * 0   root    test -x /usr/sbin/cron-apt && /usr/sbin/cron-apt /etc/cron-apt/config"
+    sun_time = "#{min.to_i + span_min} #{hour.to_i + span_hour}"
   end
 
 
@@ -125,7 +124,13 @@ node["automatic_updates"]["on_friday"] == "on"
     owner "root"
     group "root"
     mode "0644"
-    variables :cron_values => cron_values
+    variables (:mon_time => mon_time,
+               :tue_time => tue_time,
+               :wed_time => wed_time,
+               :thu_time => thu_time,
+               :fri_time => fri_time,
+               :sat_time => sat_time,
+               :sun_time => sun_time)
     source "cron-apt.erb"
   end
 
