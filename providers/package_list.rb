@@ -24,12 +24,6 @@ action :process do
   pkgs_to_remove = installed_pkgs & new_resource.packages_to_remove
 
   unless pkgs_to_install.empty?
-    execute "update-pkg-lists" do
-      command "apt-get update"
-      action :run
-      environment ({'DEBIAN_FRONTEND' => 'noninteractive'})
-    end
-
     pkgs_to_install.each do |pkg|
       package pkg do
           options "--force-yes"
