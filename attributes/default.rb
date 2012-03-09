@@ -47,7 +47,7 @@ default[:profile_photo_edition][:packages] = [
                                ]
 
 default[:profile_remote_access][:install] = 'yes'
-default[:profile_remote_access][:packages] = [ { 'name' => 'vnc4server' } ]
+default[:profile_remote_access][:packages] = [ { 'name' => 'gecos-support' } ]
 
 default[:profile_collaboration][:install] = 'yes'
 default[:profile_collaboration][:packages] = [
