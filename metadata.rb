@@ -239,7 +239,7 @@ attribute 'profile_remote_access/packages',
   :display_name => "Packages",
   :description  => "List of individual packages to be installed",
   :type         => "array",
-  :default      => [ { 'name' => 'vnc4server' } ],
+  :default      => [ { 'name' => 'gecos-support' } ],
   :order        => "1",
   :recipes      => [ 'software_management::profile_remote_access' ]
 
