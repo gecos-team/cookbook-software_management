@@ -1,8 +1,10 @@
 start on <%= @start_event %> 
 
 script
-    apt-get update | tee /tmp/apt.log
-    apt-get autoclean -y | tee -a /tmp/apt.log
-    DEBCONF_PRIORITY=critical DEBIAN_FRONTEND=noninteractive apt-get dist-upgrade -y --assume-yes --force-yes | tee -a /tmp/apt.log
+    date --rfc-3339=seconds > <%= @log_file %>
+    date --rfc-3339=seconds > <%= @err_file %>
+    apt-get update >> <%= @log_file %> 2>> <%= @err_file %> 
+    apt-get autoclean -y >> <%= @log_file %> 2>> <%= @err_file %> 
+    DEBCONF_PRIORITY=critical DEBIAN_FRONTEND=noninteractive apt-get dist-upgrade -y --assume-yes --force-yes >> <%= @log_file %> 2>> <%= @err_file %> 
 end script
 

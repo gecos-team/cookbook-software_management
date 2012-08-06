@@ -1,29 +1,29 @@
-maintainer        "Juanje Ojeda"
-maintainer_email  "jojeda@emergya.com"
+maintainer        "Alfonso de Cala"
+maintainer_email  "alfonso.cala@juntadeandalucia.es"
 license           "Apache 2.0"
-description       "Add or Remove software from a workstation"
-version           "0.2.1"
+description       "Manage software in your workstations"
+version           "0.5.0"
 
-provides            "software_management::automatic_updates"
-recipe            "software_management::automatic_updates", "Set if node updates automatically or not"
+provides          "software_management::automatic_updates"
+recipe            "software_management::automatic_updates", "Configure scheduled software upgrades"
 
-provides            "software_management::others"
+provides          "software_management::repositories"
+recipe            "software_management::repositories", "Add software repositories"
 
-provides            "software_management::profile_office"
-provides            "software_management::profile_mail"
-provides            "software_management::profile_pdftools"
-provides            "software_management::profile_scanner"
-provides            "software_management::profile_photo_edition"
-provides            "software_management::profile_remote_access"
-provides            "software_management::profile_collaboration"
-provides            "software_management::profile_accessibility"
-provides            "software_management::profile_tablet"
-provides            "software_management::profile_web"
-provides            "software_management::profile_web_firma"
+provides          "software_management::others"
+provides          "software_management::profile_office"
+provides          "software_management::profile_mail"
+provides          "software_management::profile_pdftools"
+provides          "software_management::profile_scanner"
+provides          "software_management::profile_photo_edition"
+provides          "software_management::profile_remote_access"
+provides          "software_management::profile_collaboration"
+provides          "software_management::profile_accessibility"
+provides          "software_management::profile_tablet"
+provides          "software_management::profile_web"
+provides          "software_management::profile_firma"
 
 recipe            "software_management::others", "add or remove package lists"
-
-
 recipe            "software_management::profile_office", "add or remove 'office' related packages"
 recipe            "software_management::profile_mail", "add or remove 'mail' related packages"
 recipe            "software_management::profile_pdftools", "add or remove 'pdftools' related packages"
@@ -34,7 +34,7 @@ recipe            "software_management::profile_collaboration", "add or remove '
 recipe            "software_management::profile_accessibility", "add or remove 'a11y' related packages"
 recipe            "software_management::profile_tablet", "add or remove 'tablet' related packages"
 recipe            "software_management::profile_web", "add or remove 'web' related packages"
-recipe            "software_management::profile_web_firma", "add or remove 'web_firma' related packages"
+recipe            "software_management::profile_firma", "configure spanish electronic signature with smartcard or software certificates"
 
 
 
@@ -360,30 +360,6 @@ attribute 'profile_web/packages/name',
   :order        => "1",
   :recipes      => [ 'software_management::profile_web' ]
 
-attribute 'profile_web_firma/install',
-  :display_name => "Install or remove software in 'web_firma' profile",
-  :description  => "\"no\" means that 'web_firma' software profile will be removed",
-  :type         => "string",
-  :choice       => [ "no" , "yes" ],
-  :default      => "yes",
-  :order        => "0",
-  :recipes      => [ 'software_management::profile_web_firma' ]
-
-attribute 'profile_web_firma/packages',
-  :display_name => "Packages",
-  :description  => "List of individual packages to be installed",
-  :type         => "array",
-  :default      => [ { 'name' => 'firefox-firma' } ],
-  :order        => "1",
-  :recipes      => [ 'software_management::profile_web_firma' ]
-
-attribute 'profile_web_firma/packages/name',
-  :display_name => "Package:",
-  :description  => "Name of software package to supervise",
-  :type         => "string",
-  :wizard       => "search",
-  :order        => "1",
-  :recipes      => [ 'software_management::profile_web_firma' ]
 
 attribute 'automatic_updates/on_boot',
   :display_name => "Automatic updates on boot?",
@@ -563,3 +539,56 @@ attribute 'automatic_updates/max_random_time_span',
   :default      => "000",
   :order        => "16",
   :recipes      => [ 'software_management::automatic_updates' ]
+
+
+attribute 'repositories/repositories',
+  :display_name => "Repositories",
+  :description  => "Software Catalogs",
+  :type         => "array",
+  :required     => "required",
+  :recipes      => [ 'software_management::repositories' ]
+  
+attribute 'repositories/repositories/name',
+  :display_name => "Name",
+  :description  => "A short name to identify this repository",
+  :type         => "string",
+  :validation   => "alphanumericwithdotsdashes",
+  :order        => "0",
+  :recipes      => [ 'software_management::repositories' ]
+
+attribute 'repositories/repositories/uri',
+  :display_name => "URI",
+  :description  => "Address to locate this repository (http://v1.gecos.guadalinex.org/gecos)",
+  :type         => "string",
+  :required     => "required",
+  :validation   => "url",
+  :order        => "1",
+  :recipes      => [ 'software_management::repositories' ]
+
+attribute 'repositories/repositories/distribution',
+  :display_name => "Distribution",
+  :description  => "Codename of your distribution in the repository (v1)",
+  :type         => "string",
+  :required     => "required",
+  :order        => "2",
+  :recipes      => [ 'software_management::repositories' ]
+
+attribute 'repositories/repositories/components',
+  :display_name => "Components",
+  :description  => "Comma separated list of branches in this repository (main, restricted)",
+  :type         => "string",
+  :required     => "required",
+  :default      => "main",
+  :order        => "3",
+  :recipes      => [ 'software_management::repositories' ]
+
+attribute 'repositories/repositories/key',
+  :display_name => "Key URL",
+  :description  => "URL of a file with the key to validate this repository",
+  :type         => "string",
+  :required     => "required",
+  :validation   => "url",
+  :order        => "4",
+  :recipes      => [ 'software_management::repositories' ]
+
+

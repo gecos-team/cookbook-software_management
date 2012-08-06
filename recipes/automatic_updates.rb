@@ -20,25 +20,48 @@
 # limitations under the License.
 #
 
+log_file = '/var/log/automatic-updates.log'
+err_file = '/var/log/automatic-updates.err'
 upstart_apt = '/etc/init/automatic-updates.conf'
+
 if node["automatic_updates"]["on_login"] == "true" or node["automatic_updates"]["on_boot"] == "true"
   start_event = ""
   if node["automatic_updates"]["on_login"] == "true"
     if node["automatic_updates"]["on_boot"] == "true"
-      start_event = "(runlevel [2] or desktop-session-start)"
+      start_event = "(net-device-up or desktop-session-start)"
     else
       start_event = "desktop-session-start"
     end
   else
-    start_event = "runlevel [2]"
+    start_event = "net-device-up"
   end
+# Upstart task to start a dist-upgrade 
   template upstart_apt do
     owner "root"
     group "root"
     mode "0644"
-    variables :start_event => start_event
+    variables(
+      :start_event => start_event, 
+      :log_file => log_file,
+      :err_file => err_file
+    )  
     source "automatic-updates.conf.erb"
   end
+# Ohai plugin to collect upgrade output info
+  directory "/usr/share/gecos-chef-conf/ohai-plugins/" do
+    owner "root"
+    group "root"
+    mode "0755"
+    action :create
+  end
+  cookbook_file "/usr/share/gecos-chef-conf/ohai-plugins/automatic_updates.rb" do
+    source "automatic_updates.rb"
+    owner "root"
+    group "root"
+    mode "0644"
+  end
+
+
 
 else
   if FileTest.exist? upstart_apt
@@ -59,6 +82,7 @@ cookbook_file cron_apt_config do
   group "root"
   mode "0644"
 end
+
 cron_apt_action_update = "/etc/cron-apt/action.d/0-update"
 cookbook_file cron_apt_action_update do
   source "apt_action.update"
@@ -143,7 +167,7 @@ template cron_apt do
   owner "root"
   group "root"
   mode "0644"
-  variables (:mon_time => mon_time,
+  variables(:mon_time => mon_time,
              :tue_time => tue_time,
              :wed_time => wed_time,
              :thu_time => thu_time,
